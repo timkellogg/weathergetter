@@ -1,0 +1,1 @@
+This application plugs into the telize.com api to retrieve the user's latitude and longitude.  It then uses that information to pull weather data from openwather's api.  Finally, the app pulls a recent local picture about the user's location and sets that as the background.
