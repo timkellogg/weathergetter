@@ -1,9 +1,6 @@
-This application plugs into the telize.com api to retrieve the user's latitude and longitude.  It then uses that information to pull weather data from openwather's api.  Finally, the app pulls a recent local picture about the user's location and sets that as the background.
-
-
 #	Weathergetter 
 
-##### _Bringing You the the Weather Wherever, Whenever August 27, 2015_
+##### _Bringing You the the Weather Wherever, Whenever Since 2015_
 
 #### By **Tim Kellogg**
 
