@@ -1,9 +1,5 @@
-
-
-
 $(document).ready(function() {
 
-// geolocation
 $.getJSON("http://www.telize.com/geoip?callback=?", function(json) {
 	console.log("success");
 })
@@ -12,11 +8,8 @@ $.getJSON("http://www.telize.com/geoip?callback=?", function(json) {
 	zipCode = json.postal_code;
   	geoLat  = json.latitude;
   	geoLong = json.longitude;
-
   	$('#lat').text(json.latitude);
   	$('#long').text(json.longitude);
-  	
-  		// retrieve weather
 		 $.ajax({
 		 			url: 'http://api.openweathermap.org/data/2.5/find?lat=' + geoLat + '&lon=' + geoLong + '&cnt=1&units=imperial',
 		 			error: function() {
@@ -47,13 +40,11 @@ $.getJSON("http://www.telize.com/geoip?callback=?", function(json) {
 						if (wind > 10) {
 							$('#windSpeed').css('color', 'orange');
 						} 
-
 						if (temp < 32) {
 							$('#temp').css('color', 'darkblue');
 						} else if (temp > 85) {
 							$('#temp').css('color', 'red');
 						} 
-
 		 				$('#temp').text(Math.round(temp) + " F");
 		 				$('#city').text(city);
 		 				$('#pressure').text(pressure);
@@ -62,29 +53,6 @@ $.getJSON("http://www.telize.com/geoip?callback=?", function(json) {
 		 				$('#windSpeed').text(wind + " mph " + windDirection);
 		 				$('#windDeg').text(windDirection);
 		 				$('#description').text(description);
-		 				
-
-						// retrieve picture 
-						// $.ajax({
-						// 	url: 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=[API_KEY]&safe_search=&lat=' + geoLat + '&lon=' + geoLong + '&format=json&nojsoncallback=1&content_type=1',
-				  //       	error: function() {
-				  //       		console.log('FlickerAPI Error');
-				  //       	},
-				  //       	success: function(data) {
-
-				        		
-				  //       		var root = data.photos.photo[ Math.floor(Math.random() * (10 - 1)) + 1];
-				  //       		var bgUrl = 'https://farm' + root.farm + '.staticflickr.com/' + 
-				  //       						 root.server + '/' + root.id + '_' + root.secret + '.jpg';		
-				  //       		$('#photo').css('background-image','url(' + bgUrl + ')');
-				  //       		console.log(bgUrl);
-				  //       	},
-				  //       	always: function(bl) {
-				  //       		console.log('finished flicker');
-				  //       	}
-
-				  //       });
-
 		 			},
 		 			type: 'GET'
 		 		});
